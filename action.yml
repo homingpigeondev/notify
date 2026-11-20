@@ -1,0 +1,30 @@
+name: Homing Pigeon
+description: "Homing Pigeon (homingpigeon.dev) sends text-message alerts from your code or your coding agent to one phone: yours. No carrier registration, no app, no browser signup. Free to start."
+author: Homing Pigeon
+branding:
+  icon: message-square
+  color: purple
+inputs:
+  message:
+    description: The text to send, up to 480 characters. It arrives as "[key name] message".
+    required: true
+  api-key:
+    description: Your Homing Pigeon key. Store it as a repository secret. Defaults to the HOMINGPIGEON_API_KEY environment variable.
+    required: false
+  idempotency-key:
+    description: Optional. Reusing it on a re-run stops a second text for the same event.
+    required: false
+  fail-on-error:
+    description: Fail the step if the text cannot be sent. By default a failed send is only a warning, so an alert never breaks your build.
+    required: false
+    default: "false"
+outputs:
+  id:
+    description: The message id, if it was sent.
+  status:
+    description: The message status, such as queued, or empty if it was not sent.
+  messages-remaining:
+    description: Texts left this month.
+runs:
+  using: node24
+  main: index.js

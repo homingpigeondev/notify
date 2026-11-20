@@ -1,0 +1,11 @@
+{
+  "name": "homingpigeondev-action",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Homing Pigeon (homingpigeon.dev) sends text-message alerts from your code or your coding agent to one phone: yours. No carrier registration, no app, no browser signup. Free to start.",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  }
+}
